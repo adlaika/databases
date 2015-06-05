@@ -4,7 +4,7 @@ USE chat;
 
 CREATE TABLE messages (
   username varchar(100),
-  message varchar(200),
+  text varchar(200),
   createdAt date,
   room varchar(50)
 );
