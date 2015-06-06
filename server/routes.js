@@ -7,5 +7,9 @@ for (var route in controllers) {
     .post(controllers[route].post);
 }
 
+// router.get('/', function(req, res) {
+//   console.log('homepage');
+//   router.get(controllers.messages.get);
+// })
 module.exports = router;
 

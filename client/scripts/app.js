@@ -5,7 +5,7 @@ $(document).ready(function(){
   var roomNames = [];
   var allMessages = [];
   var friends = [];
-  var host = 'http://127.0.0.1:3000';
+  var host = 'http://127.0.0.1:3000/classes';
 
   var postMessage = function(username,text,roomName) {
     var message = {
@@ -24,7 +24,6 @@ $(document).ready(function(){
       contentType: 'application/json',
       success: function (data) {
         console.log('chatterbox: Message sent');
-        console.log(data);
         getMessages();
       },
       error: function (data) {
@@ -42,7 +41,6 @@ $(document).ready(function(){
       success: function (data) {
         allMessages = data.results;
         refreshMessageBody();
-        console.log(data);
         console.log('chatterbox: Message received');
       },
       error: function (data) {
@@ -77,7 +75,7 @@ $(document).ready(function(){
 
       for (var i = 0; i < friends.length; i++) {
         var friend = friends[i].replace(/\s/g, "_");
-        console.log($('.' + friend));
+        // console.log($('.' + friend));
         $('.' + friend).attr('class','friend');
       }
   };
