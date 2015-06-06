@@ -5,7 +5,7 @@ $(document).ready(function(){
   var roomNames = [];
   var allMessages = [];
   var friends = [];
-  var host = 'http://127.0.0.1:3000/classes';
+  var host = 'http://127.0.0.1:3000/classes/messages';
 
   var postMessage = function(username,text,roomName) {
     var message = {

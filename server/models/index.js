@@ -6,7 +6,6 @@ module.exports = {
     get: function (callback) {
       console.log('models get called');
       var data = db.dbConnection.query('select * from messages;', function(err, data) {
-        db.dbConnection.end();
         if(!err){
           callback(data);
           console.log(data);
@@ -17,7 +16,17 @@ module.exports = {
       // console.log('data:', data);
       // callback(data);
     }, // a function which produces all the messages
-    post: function () {} // a function which can be used to insert a message into the database
+    post: function (body, callback) {
+      //insert body into database
+      var data = db.dbConnection.query("insert into messages (username, text) values('" + body.username + "','" + body.text+"');" , function(err, data) {
+        if(!err){
+          callback();
+          console.log(data);
+        }else{
+          console.log(err);
+        }
+      });
+    } // a function which can be used to insert a message into the database
   },
 
   users: {

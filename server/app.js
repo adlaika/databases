@@ -19,11 +19,12 @@ app.set("port", 3000);
 app.use(morgan('dev'));
 app.use(parser.json());
 
+//Set up CORS headers - MV
+app.use(cors());
+
 // Set up our routes
 app.use("/classes", router);
 
-//Set up CORS headers - MV
-app.use(cors());
 
 // Serve the client files
 app.use(express.static(__dirname + "/../client"));
