@@ -9,6 +9,10 @@ CREATE TABLE messages (
   room varchar(50)
 );
 
+CREATE TABLE users (
+  username varchar(100)
+);
+
 
 /* Create other tables and define schemas for them here! */
 
