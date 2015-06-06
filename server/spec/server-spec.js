@@ -40,7 +40,7 @@ describe("Persistent Node Chat Server", function() {
               json: {
                 username: "Valjean",
                 text: "In mercy&#x27;s name, three days is all I need.",
-                roomname: "Hello"
+                room: "Hello"
               }
       }, function () {
         // Now if we look in the database, we should find the
@@ -68,7 +68,7 @@ describe("Persistent Node Chat Server", function() {
 
   it("Should output all messages from the DB", function(done) {
     // Let's insert a message into the db
-       var queryString = "";
+       var queryString = "insert into messages (text, room) values ('Men like you can never change!', 'main');";
        var queryArgs = [];
     // TODO - The exact query string and query args to use
     // here depend on the schema you design, so I'll leave
@@ -82,7 +82,7 @@ describe("Persistent Node Chat Server", function() {
       request("http://127.0.0.1:3000/classes/messages", function(error, response, body) {
         var messageLog = JSON.parse(body);
         expect(messageLog[0].text).to.equal("Men like you can never change!");
-        expect(messageLog[0].roomname).to.equal("main");
+        expect(messageLog[0].room).to.equal("main");
         done();
       });
     });
